@@ -1,10 +1,14 @@
 :root {
-    --primary: red;
+    --primary: #FF1053;
+    --secondary: #f2f4f3;
+    --terciary: #222;
     --spacing: 4rem;
+    color: #222;
   }
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: var(--secondary);
   }
 
   header {
@@ -16,11 +20,34 @@
     padding: var(--spacing);
   }
 
+  .neutral-theme {
+    background-color: var(--secondary);
+    --button-color: var(--primary);
+    --button-border-color: var(--terciary);
+    --button-hover-color: var(--secondary);
+    --selection-text: var(--secondary);
+    --selection-background: var(--terciary);
+  }
+
+  .primary-theme {
+    color: var(--secondary);
+    background-color: var(--primary);
+    --button-color: var(--secondary);
+    --button-border-color: var(--secondary);
+    --button-hover-color: var(--primary);
+    --selection-background: var(--terciary);
+  }
+
   h1 {
     margin-bottom: 2rem;
     font-size: 4vw;
     font-weight: bold;
-    line-height: 1.4em;
+    line-height: 1.2em;
+  }
+
+  h1::selection {
+    background: var(--selection-background);
+    color: var(--secondary);
   }
 
   h2 {
@@ -31,34 +58,44 @@
     text-transform: uppercase;
   }
 
+  h2::selection {
+    color: var(--selection-text);
+    background-color: var(--selection-background);
+  }
+
   h3 {
     margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: bold;
   }
 
-  .neutral-theme {
-    background-color: white;
-    --button-color: var(--primary);
-    --button-hover-color: white;
-  }
-
-  .primary-theme {
-    color: white;
-    background-color: var(--primary);
-    --button-color: white;
-    --button-hover-color: var(--primary);
+  h3::selection {
+    color: var(--selection-text);
+    background-color: var(--selection-background);
   }
 
   .heading-highlight {
     color: var(--primary);
   }
 
+  .heading-highlight::selection {
+    background-color: var(--terciary);
+  }
+
+  .heading-me {
+    font-size: 2.5vw;
+  }
+
+  .heading-me::selection {
+    background: var(--terciary);
+    color: var(--secondary);
+  }
+
   .button {
     display: inline-block;
     width: max-content;
-    padding: 1rem;
-    border: 2px solid var(--button-color);
+    padding: 1rem 3rem;
+    border: 2px solid var(--button-border-color);
     border-radius: .5rem;
     font-weight: bold;
     text-decoration: none;
@@ -73,46 +110,80 @@
     transition-duration: .5s;
   }
 
+  .button:focus {
+    background-color: var(--terciary);
+  }
+
   section {
     padding: var(--spacing);
   }
 
   .about-container {
+    display: grid;
+    margin-right: auto;
     max-width: 960px;
     margin: 0 auto;
   }
 
   .about-img {
+    max-width: 20vw;
+    margin-bottom: 2vw;
+    height: 20vw;
     display: block;
-    width: 100%;
-    max-width: 350px;
-    margin: 0 auto var(--spacing);
     filter: grayscale(100%);
+    border-radius: 1vw;
+    border-top: 1vw solid var(--secondary);
+    border-right: 1vw solid var(--secondary);
+    border-bottom: 5vw solid var(--secondary);
+    border-left: 1vw solid var(--secondary);
+    box-shadow: 0px 1px var(--terciary);
   }
 
   .about-img:hover {
     filter: grayscale(0);
+    transform-origin: center;
+    transform: rotate(-5deg);
+    transition: 100ms ease-in-out all;
   }
 
   img {
-    max-width: 350px;
-    border-radius: 1rem;
+    max-width: 20vw;
+    height: 20vw;
   }
 
   p {
+    font-size: 1.5vw;
     margin-bottom: 1em;
-    line-height: 1.4em;
+    line-height: 1.8em;
   }
 
+  p::selection {
+    color: var(--selection-text);
+    background-color: var(--selection-background);
+  }
+
+  a::selection {
+    background-color: var(--selection-background);
+  }
+
+
   .about-text {
-    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   blockquote {
     margin-top: var(--spacing);
-    font-size: 2rem;
+    padding: 0 10vw;
+    font-size: 1.5vw;
     font-style: italic;
     text-align: center;
+    line-height: 2.5vw;
+  }
+
+  blockquote::selection {
+    background-color: var(--selection-background);
   }
 
   cite {
@@ -120,6 +191,10 @@
     margin-top: 1rem;
     font-size: 1rem;
     font-style: normal;
+  }
+
+  cite::selection {
+    background-color: var(--selection-background);
   }
 
   article {
@@ -135,11 +210,15 @@
     text-align: center;
   }
 
+  .contact-text {
+    padding-bottom: 4rem;
+  }
+
   footer {
     padding: var(--spacing);
     text-align: center;
     color: white;
-    background-color: #333;
+    background-color: var(--terciary);
   }
 
   .social {
@@ -181,6 +260,17 @@
     background-image: url(https://victorious-curvy-bookcase.glitch.me/images/youtube.svg);
   }
 
+  .about::before {
+    content: '';
+    position: absolute;
+    left: 0vw;
+    top: -100px;
+    width: 0;
+    height: 0;
+    border-bottom: 100px solid var(--primary);
+    border-left: 100vw solid transparent;
+  }
+
   .about {
     position: relative;
     margin-bottom: 100px;
@@ -203,6 +293,9 @@
     }
 
     .about-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-left: var(--spacing);
     }
 
