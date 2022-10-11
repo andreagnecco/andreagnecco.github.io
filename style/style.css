@@ -212,7 +212,7 @@
   }
 
   .contact-text {
-    padding-bottom: 4rem;
+    padding-bottom: 1em;
   }
 
   footer {
@@ -330,7 +330,6 @@
     p {
       font-size: 1.5vw;
       text-align: left;
-      margin-bottom: var(--spacing);
       line-height: 1.8em;
     }
 
@@ -360,10 +359,17 @@
       grid-template-columns: 12rem 10rem;
     }
 
+    .contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .contact-text {
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-bottom: .5em;
     }
 
     .copy {
