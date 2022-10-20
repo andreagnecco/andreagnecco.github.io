@@ -161,7 +161,6 @@
     background-color: var(--selection-background);
   }
 
-
   .about-text {
     display: flex;
     flex-direction: column;
