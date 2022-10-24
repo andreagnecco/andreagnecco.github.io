@@ -40,9 +40,10 @@
 
   h1 {
     margin-bottom: 2rem;
-    font-size: 4vw;
+    font-size: 7vw;
     font-weight: bold;
     line-height: 1.2em;
+    text-align: center;
   }
 
   h1::selection {
@@ -52,8 +53,8 @@
 
   h2 {
     margin-bottom: 8vw;
-    text-align: left;
-    font-size: 5vw;
+    text-align: center;
+    font-size: 7vw;
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -83,7 +84,10 @@
   }
 
   .heading-me {
-    font-size: 2.5vw;
+    font-size: 4.5vw;
+    font-weight: 400;
+    line-height: .5rem;
+    padding-top: 3rem;
   }
 
   .heading-me::selection {
@@ -142,8 +146,8 @@
   }
 
   img {
-    max-width: 20vw;
-    height: 20vw;
+    height: auto;
+    max-width: 35vw;
   }
 
   p {
@@ -191,13 +195,27 @@
     background-color: var(--selection-background);
   }
 
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 3fr));
+    grid-gap: 20px;
+  }
+
   article {
-    display: flex;
-    flex-direction: column-reverse;
-    margin-bottom: 5vw;
+    display: grid;
+    grid-template-rows: max-content 3em 1fr;
+    border: 1px solid #CCC;
+    border-radius: .5rem;
+    padding: 4em;  }
+
+  article p {
+    font-size: 1.2rem;
   }
 
   .article-img {
+    object-fit: cover;
+    width: 100%;
+    height: 25%;
     margin-bottom: 2rem;
   }
 
@@ -288,6 +306,14 @@
   }
 
   @media (min-width: 800px) {
+    h1 {
+      font-size: 4vw;
+    }
+
+    .heading-me {
+      font-size: 2.5vw;
+    }
+
     h2 {
       margin-bottom: var(--spacing);
       text-align: center;
@@ -309,6 +335,22 @@
       filter: grayscale(100%);
       transform-origin: center;
       transform: rotate(0);
+    }
+
+    img {
+      height: auto;
+      max-width: 15vw;
+    }
+
+    .about-img {
+      margin-bottom: 2vw;
+      display: block;
+      border-radius: 1vw;
+      border-top: 1vw solid var(--secondary);
+      border-right: 1vw solid var(--secondary);
+      border-bottom: 5vw solid var(--secondary);
+      border-left: 1vw solid var(--secondary);
+      box-shadow: 0px 1px var(--terciary);
     }
 
     .about-img:hover {
@@ -347,15 +389,9 @@
       margin: 0 auto var(--spacing);
     }
 
-    .article-img {
-      margin-left: 2em;
-      object-fit: contain;
-    }
-
     .article-buttons {
       display: grid;
       grid-template-rows: none;
-      grid-template-columns: 12rem 10rem;
     }
 
     .contact {
